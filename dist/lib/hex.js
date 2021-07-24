@@ -98,7 +98,7 @@ const herogrid = Grid.rectangle({
 const playergrid = Grid([1,1],[1,2],[1,3],[2,1],[2,2],[2,3],[2,4],[3,1],[3,2],[3,3]);
 const premadegrid = Grid([6,5],[8,5],[10,5]);
 document.addEventListener('click', ({ offsetX, offsetY }) => {
-  if (typeof currentRoom.hexClickHandler != 'undefined'){
+  if (typeof currentRoom != 'undefined' && typeof currentRoom.hexClickHandler != 'undefined'){
     const hexCoords = Grid.pointToHex(offsetX-hexOffsetX, offsetY-hexOffsetY);
     if (playergrid.get(hexCoords)) currentRoom.hexClickHandler(offsetX, offsetY, playergrid.get(hexCoords));
     if (currentRoom == rooms.lobby) {
