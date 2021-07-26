@@ -23,7 +23,6 @@ const BoardHex = Honeycomb.extendHex({
     const corners = this.corners()
     
     this.hexDraw = d;
-    
     this.border = this.hexDraw
     .polygon(corners.map(({ x, y }) => `${x},${y}`))
     .stroke({ width: 1, color: '#fff' })
@@ -32,6 +31,12 @@ const BoardHex = Honeycomb.extendHex({
     .opacity(.9);
     
     this.canvas = this.hexDraw.group();
+    if (t == 'game') {
+      this.border.stroke({ width: 1, color: 'transparent' })
+      this.canvas.image('assets/heros/field.png').translate(this.dx, this.dy);
+    } else {
+      this.canvas = this.hexDraw.group();
+    }
     this.hexDraw.addClass('clickable');
   },
   clear(){
@@ -64,15 +69,15 @@ const BoardHex = Honeycomb.extendHex({
     for (var i = 0; i < r; i++){
       rr += "*";
     }
-    var fc = "black";
-    if (r == 1) fc = "white";
-    this.canvas.text(rr).translate(this.dx+65, this.dy+73).font(CONFIG.fonts.units).fill("#fec80e").stroke({width:1, color:"#fec80e"});
-    this.canvas.text(CONFIG.magni[this.magni[1].magni][1].toString()).translate(this.dx+28, this.dy+64).font(CONFIG.fonts.units).fill(fc);
-    this.canvas.text(CONFIG.magni[this.magni[1].magni][2].toString()).translate(this.dx+28, this.dy+22).font(CONFIG.fonts.units).fill(fc);
-    this.canvas.text(CONFIG.magni[this.magni[1].magni][4].toString()).translate(this.dx+100, this.dy+22).font(CONFIG.fonts.units).fill(fc);
-    this.canvas.text(CONFIG.magni[this.magni[1].magni][5].toString()).translate(this.dx+100, this.dy+64).font(CONFIG.fonts.units).fill(fc);
-    this.canvas.text(CONFIG.magni[this.magni[1].magni][3].toString()).translate(this.dx+64, this.dy+2).font(CONFIG.fonts.units).fill(fc);
-    this.canvas.text(CONFIG.magni[this.magni[1].magni][3].toString()).translate(this.dx+64, this.dy+84).font(CONFIG.fonts.units).fill(fc);
+    var fc = "white";
+    var sc = "black";
+    this.canvas.text(rr).translate(this.dx+65, this.dy+67).font(CONFIG.fonts.units).fill("#fec80e").stroke({width:.1, color:"#fec80e"});
+    this.canvas.text(CONFIG.magni[this.magni[1].magni][1].toString()).translate(this.dx+31, this.dy+60).font(CONFIG.fonts.units).fill(fc).stroke({width:1, color:sc});
+    this.canvas.text(CONFIG.magni[this.magni[1].magni][2].toString()).translate(this.dx+31, this.dy+18).font(CONFIG.fonts.units).fill(fc).stroke({width:1, color:sc});
+    this.canvas.text(CONFIG.magni[this.magni[1].magni][4].toString()).translate(this.dx+95, this.dy+18).font(CONFIG.fonts.units).fill(fc).stroke({width:1, color:sc});
+    this.canvas.text(CONFIG.magni[this.magni[1].magni][5].toString()).translate(this.dx+95, this.dy+60).font(CONFIG.fonts.units).fill(fc).stroke({width:1, color:sc});
+    this.canvas.text(CONFIG.magni[this.magni[1].magni][3].toString()).translate(this.dx+64, this.dy+0).font(CONFIG.fonts.units).fill(fc).stroke({width:1, color:sc});
+    this.canvas.text(CONFIG.magni[this.magni[1].magni][3].toString()).translate(this.dx+64, this.dy+78).font(CONFIG.fonts.units).fill(fc).stroke({width:1, color:sc});
     this.border.fill(col);
   },
   special(t,d) {

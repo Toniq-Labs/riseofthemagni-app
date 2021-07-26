@@ -45,9 +45,6 @@ function drawLocalScore(){
   if (st1) {
     st1.text(myscore)
     st2.text(opscore)
-  } else {
-    st1 = currentRoom.draw.text(myscore).font({size: 30}).translate(620, 170).fill(CONFIG.colors.ally);
-    st2 = currentRoom.draw.text(opscore).font({size: 30}).translate(1050, 170).fill(CONFIG.colors.enemy);    
   }
 };
 function drawScore(){
@@ -59,8 +56,8 @@ function drawScore(){
     st1.text(myscore)
     st2.text(opscore)
   } else {
-    st1 = currentRoom.draw.text(myscore).font({size: 30}).translate(620, 170).fill(CONFIG.colors.ally);
-    st2 = currentRoom.draw.text(opscore).font({size: 30}).translate(1050, 170).fill(CONFIG.colors.enemy);    
+    st1 = currentRoom.draw.text(myscore).font({size: 50, anchor:   'middle'}).translate(650, 170).fill(CONFIG.colors.ally);
+    st2 = currentRoom.draw.text(opscore).font({size: 50, anchor:   'middle'}).translate(1040, 170).fill(CONFIG.colors.enemy);    
   }
 }
 //player 1 = 0, p2 = 1...

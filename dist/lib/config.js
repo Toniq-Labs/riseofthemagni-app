@@ -115,10 +115,10 @@ const CONFIG = {
   },
   fonts : {
     units : {
-      size: 12, 
+      size: 18, 
       anchor:   'middle', 
-      family:"Verdana", 
-      weight:'bold'
+      family:"Open Sans", 
+      weight:800
     },
     buttons : {
       size: 12, 
