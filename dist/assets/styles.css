@@ -4,13 +4,15 @@ body {
   background-color: #aaa;
   font-family: 'Verdana';
 }
-
+#gameContainer {
+  margin: 0 auto;
+  width: 1200px;
+  overflow: visible;
+}
 svg {
   background-color: #fff;
   border:5px solid #777;
   overflow: visible;
-  margin:0 auto;
-  display: block;
   background-size:cover;
 }
 .clickable{
